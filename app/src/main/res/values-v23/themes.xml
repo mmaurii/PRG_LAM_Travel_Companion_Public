@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Inherits from your base theme -->
+    <style name="Theme.TravelCompanion" parent="Base.Theme.TravelCompanion">
+        <!-- Optional: puoi sovrascrivere colori solo se vuoi differenziarli in v23 -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+
+    <!-- Toolbar style specific for v23 -->
+    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/purple</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="navigationIconTint">@android:color/white</item>
+    </style>
+</resources>

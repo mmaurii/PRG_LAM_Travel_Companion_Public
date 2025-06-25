@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MapFragment">
+
+    <fragment
+        android:id="@+id/StatisticsFragment"
+        android:name="com.example.travelcompanion.StatisticsFragment"
+        android:label="@string/statistics_fragment_label"
+        tools:layout="@layout/fragment_view_statistics">
+
+        <action
+            android:id="@+id/action_statistics"
+            app:destination="@id/StatisticsFragment" />
+
+        <action
+            android:id="@+id/acttion_statistics_details"
+            app:destination="@+id/StatisticsFragmentDetails"/>
+
+        <action
+            android:id="@+id/acttion_heat_Map"
+            app:destination="@+id/HeatMapFragment"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/MapFragment"
+        android:name="com.example.travelcompanion.MapFragment"
+        android:label="@string/map_fragment_label"
+        tools:layout="@layout/fragment_map">
+
+        <argument
+            android:name="tripId"
+            app:argType="string"
+            app:nullable="true"/>
+
+
+        <action
+            android:id="@+id/action_map"
+            app:destination="@id/MapFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/StatisticsFragmentDetails"
+        android:name="com.example.travelcompanion.StatisticsFragmentDetails"
+        android:label="View Statistics Details" />
+
+    <fragment
+        android:id="@+id/HeatMapFragment"
+        android:name="com.example.travelcompanion.HeatMapFragment"
+        android:label="View Heat Map" />
+
+    <fragment
+        android:id="@+id/CreateTripFragment"
+        android:name="com.example.travelcompanion.CreateTripFragment"
+        android:label="@string/create_trip_fragment_label"
+        tools:layout="@layout/fragment_create_trip">
+
+        <action
+            android:id="@+id/action_create_trip"
+            app:destination="@id/CreateTripFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/GeofenceFragment"
+        android:name="com.example.travelcompanion.GeofenceFragment"
+        android:label="view geofenced point"
+        tools:layout="@layout/fragment_geofence">
+
+        <action
+            android:id="@+id/action_geofence_list"
+            app:destination="@id/GeofenceFragment" />
+
+        <action
+            android:id="@+id/action_geofence_list_to_add_geofence"
+            app:destination="@id/AddGeofenceFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/AddGeofenceFragment"
+        android:name="com.example.travelcompanion.AddGeofenceFragment"
+        android:label="Add Geofence Point" />
+
+    <navigation
+        android:id="@+id/nav_view_trips_graph"
+        app:startDestination="@id/ViewTripFragment">
+
+        <fragment
+            android:id="@+id/ViewTripFragment"
+            android:name="com.example.travelcompanion.ViewTripFragment"
+            android:label="@string/view_trip_fragment_label"
+            tools:layout="@layout/fragment_view_trip">
+
+            <action
+                android:id="@+id/action_view_trip"
+                app:destination="@id/ViewTripFragment" />
+
+            <action
+                android:id="@+id/action_viewTripFragment_to_mapFragment"
+                app:destination="@id/MapFragment" />
+
+            <action
+                android:id="@+id/action_viewTripFragment_to_tripInfoDialogFragment"
+                app:destination="@+id/TripDetailsFragment"/>
+        </fragment>
+
+        <fragment
+            android:id="@+id/TripDetailsFragment"
+            android:name="com.example.travelcompanion.TripDetailsFragment"
+            android:label="Trip Details">
+            <argument
+                android:name="tripId"
+                app:argType="string" />
+
+            <action
+                android:id="@+id/action_tripInfoDialogFragment_to_viewTripFragment"
+                app:destination="@+id/ViewTripFragment"/>
+            <action
+                android:id="@+id/action_tripDetailsFragment_to_mapFragment"
+                app:destination="@+id/MapFragmentDetail"/>
+        </fragment>
+        <fragment
+            android:id="@+id/MapFragmentDetail"
+            android:name="com.example.travelcompanion.MapFragment"
+            android:label="@string/map_fragment_label"
+            tools:layout="@layout/fragment_map">
+
+            <argument
+                android:name="tripId"
+                app:argType="string"
+                app:nullable="true"/>
+
+
+            <action
+                android:id="@+id/action_map"
+                app:destination="@id/MapFragment" />
+        </fragment>
+
+    </navigation>
+
+</navigation>

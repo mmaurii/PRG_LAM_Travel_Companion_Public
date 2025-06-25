@@ -1,0 +1,137 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <!-- Titolo -->
+                <TextView
+                    android:id="@+id/tvTripTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Titolo Viaggio"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Note -->
+                <TextView
+                    android:id="@+id/tvTripNotes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Date affiancate -->
+                <TextView
+                    android:id="@+id/tvTripStartDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Start Date"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripNotes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvTripEndDate"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvTripEndDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="End Date"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripNotes"
+                    app:layout_constraintStart_toEndOf="@id/tvTripStartDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <!-- Ascesa e discesa affiancate -->
+                <TextView
+                    android:id="@+id/tvTripAscent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Ascent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripStartDate"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tvTripDescent"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvTripDescent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Descent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripEndDate"
+                    app:layout_constraintStart_toEndOf="@id/tvTripAscent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <!-- Distanza e bottone affiancati sotto ascesa e discesa, larghezza uguale -->
+                <TextView
+                    android:id="@+id/tvTripDistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Distance"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripAscent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnViewOnMap"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <Button
+                    android:id="@+id/btnViewOnMap"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="visualizza sulla mappa"
+                    app:layout_constraintTop_toBottomOf="@id/tvTripDescent"
+                    app:layout_constraintStart_toEndOf="@id/tvTripDistance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1" />
+
+                <!-- Header layout vuoto (se serve) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/headerLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/btnViewOnMap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <!-- Label "travel points" sopra RecyclerView -->
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/travel_points"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnViewOnMap"
+                    app:layout_constraintEnd_toStartOf="@+id/btnViewOnMap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTripDistance" />
+
+                <!-- RecyclerView con altezza 0dp e vincoli top e bottom -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTravelPoints"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/headerLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

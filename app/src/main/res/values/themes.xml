@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base theme compatible with AppCompatActivity -->
+    <style name="Base.Theme.TravelCompanion" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Color customization -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryVariant">@color/nightPurple</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Icon tint (e.g. hamburger icon) -->
+        <item name="colorControlNormal">@android:color/white</item>
+
+        <!-- Use our custom toolbar style -->
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+
+    <!-- App theme -->
+    <style name="Theme.TravelCompanion" parent="Base.Theme.TravelCompanion" />
+
+    <!-- Custom Toolbar style -->
+    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/purple</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="navigationIconTint">@android:color/white</item>
+    </style>
+</resources>
