@@ -15,3 +15,6 @@
 local.properties
 app/apikeys.properties
 apikeys.properties
+*.keystore
+*.jks
+
